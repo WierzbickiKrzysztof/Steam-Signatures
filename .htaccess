@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule ^([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+) /steam/generator.php?id=$1&s=$2&t=$3&r=$4 [L]
+RewriteRule ^([0-9]+)-([0-9]+)-([0-9]+) /steam/generator.php?id=$1&s=$2&t=$3 [L]
+
+# force ssl
+RewriteCond     %{SERVER_PORT} ^80$
+RewriteRule     ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
